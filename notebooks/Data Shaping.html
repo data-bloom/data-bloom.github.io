@@ -11749,8 +11749,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Shape-Data">Shape Data<a class="anchor-link" href="#Shape-Data">&#182;</a></h1><p>Raw files do not come prepped for analysis. You must indispensably change the raw data.</p>
-<p>Based on the movie lens data, let us identify where men and women most disagree with each other on rating.</p>
+<h1 id="Shape-Data"><center>Shape Data</center><a class="anchor-link" href="#Shape-Data">&#182;</a></h1><p>Raw files do not come prepped for analysis. You must indispensably change the raw data. Below, some simple examples of aggregating raw data into a analytical shape.</p>
+<p>Based on the movie lens data (<a href="http://grouplens.org/datasets/movielens/">http://grouplens.org/datasets/movielens/</a>), let us identify where men and women most disagree with each other on rating.</p>
 
 </div>
 </div>
@@ -11763,24 +11763,33 @@ div#notebook {
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Bring the ratings, users, and movies data from the web</span>
 <span class="c1"># Ratings</span>
 <span class="n">ratings</span> <span class="o">=</span> <span class="n">sqlCtx</span><span class="o">.</span><span class="n">createDataFrame</span><span class="p">(</span>
-    <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;http://files.grouplens.org/datasets/movielens/ml-100k/u.data&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
-                <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="s1">&#39;item_id&#39;</span><span class="p">,</span> <span class="s1">&#39;rating&#39;</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">]))</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+        <span class="s1">&#39;http://files.grouplens.org/datasets/movielens/ml-100k/u.data&#39;</span><span class="p">,</span>
+        <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="s1">&#39;item_id&#39;</span><span class="p">,</span> <span class="s1">&#39;rating&#39;</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">]))</span>
 
 <span class="c1"># Users</span>
 <span class="n">users</span> <span class="o">=</span> <span class="n">sqlCtx</span><span class="o">.</span><span class="n">createDataFrame</span><span class="p">(</span>
-    <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;http://files.grouplens.org/datasets/movielens/ml-100k/u.user&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">,</span>
-                <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;user_id_dim&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;occupation&#39;</span><span class="p">,</span> <span class="s1">&#39;zip&#39;</span><span class="p">]))</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+        <span class="s1">&#39;http://files.grouplens.org/datasets/movielens/ml-100k/u.user&#39;</span><span class="p">,</span>
+        <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">,</span>
+        <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;user_id_dim&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;occupation&#39;</span><span class="p">,</span> <span class="s1">&#39;zip&#39;</span><span class="p">]))</span>
 
 <span class="c1"># Movies</span>
 <span class="n">movies</span> <span class="o">=</span> <span class="n">sqlCtx</span><span class="o">.</span><span class="n">createDataFrame</span><span class="p">(</span>
-    <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;http://files.grouplens.org/datasets/movielens/ml-100k/u.item&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;|&quot;</span><span class="p">,</span>
-                <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> 
-                       <span class="sd">&#39;&#39;&#39;movie_id_dim | movie_title | release_date | video release date |</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+        <span class="s1">&#39;http://files.grouplens.org/datasets/movielens/ml-100k/u.item&#39;</span><span class="p">,</span>
+        <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;|&quot;</span><span class="p">,</span>
+        <span class="n">names</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">col</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span>
+            <span class="sd">&#39;&#39;&#39;movie_id_dim | movie_title | release_date | video release date |</span>
 <span class="sd">                          IMDb URL | unknown | Action | Adventure | Animation |</span>
 <span class="sd">                          Children&#39;s | Comedy | Crime | Documentary | Drama | Fantasy |</span>
 <span class="sd">                          Film-Noir | Horror | Musical | Mystery | Romance | Sci-Fi |</span>
-<span class="sd">                          Thriller | War | Western&#39;&#39;&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)],</span> 
-                <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;movie_id_dim&#39;</span><span class="p">,</span> <span class="s1">&#39;movie_title&#39;</span><span class="p">]))</span>
+<span class="sd">                          Thriller | War | Western&#39;&#39;&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)</span>
+        <span class="p">],</span>
+        <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;movie_id_dim&#39;</span><span class="p">,</span> <span class="s1">&#39;movie_title&#39;</span><span class="p">]))</span>
 
 <span class="c1"># Display a preview of all datasets</span>
 <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;h2&gt;Ratings&lt;/h2&gt;&#39;</span><span class="p">))</span>
@@ -11997,7 +12006,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Dimension/Fact-Join">Dimension/Fact Join<a class="anchor-link" href="#Dimension/Fact-Join">&#182;</a></h1>
+<h2 id="Dimension/Fact-Join">Dimension/Fact Join<a class="anchor-link" href="#Dimension/Fact-Join">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -12007,7 +12016,9 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Join the dimensional definitions with factual tables to obtain denormalized representation</span>
-<span class="n">norm_ratings</span> <span class="o">=</span> <span class="n">sqlCtx</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;select a.*, b.*, c.* from {0} a join {1} b join {2} c on a.user_id = b.user_id_dim and a.item_id = movie_id_dim&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ratings</span><span class="o">.</span><span class="n">reg</span><span class="p">(),</span> <span class="n">users</span><span class="o">.</span><span class="n">reg</span><span class="p">(),</span> <span class="n">movies</span><span class="o">.</span><span class="n">reg</span><span class="p">()))</span>
+<span class="n">norm_ratings</span> <span class="o">=</span> <span class="n">sqlCtx</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+    <span class="sd">&#39;&#39;&#39;select a.*, b.*, c.* from {0} a join {1} b join {2} c on a.user_id = b.user_id_dim and a.item_id = movie_id_dim&#39;&#39;&#39;</span><span class="o">.</span>
+    <span class="n">format</span><span class="p">(</span><span class="n">ratings</span><span class="o">.</span><span class="n">reg</span><span class="p">(),</span> <span class="n">users</span><span class="o">.</span><span class="n">reg</span><span class="p">(),</span> <span class="n">movies</span><span class="o">.</span><span class="n">reg</span><span class="p">()))</span>
 
 <span class="c1"># Show a preview</span>
 <span class="n">display</span><span class="p">(</span><span class="n">norm_ratings</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">toPandas</span><span class="p">())</span>
@@ -12199,7 +12210,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Compute-Average">Compute Average<a class="anchor-link" href="#Compute-Average">&#182;</a></h1>
+<h2 id="Compute-Average">Compute Average<a class="anchor-link" href="#Compute-Average">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -12209,7 +12220,8 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Let us average the rating per movie per gender</span>
-<span class="n">avg_ratings</span> <span class="o">=</span> <span class="n">norm_ratings</span><span class="o">.</span><span class="n">groupBy</span><span class="p">([</span><span class="s1">&#39;movie_title&#39;</span><span class="p">,</span> <span class="s1">&#39;gender&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">avg</span><span class="p">(</span><span class="s1">&#39;rating&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;rating&#39;</span><span class="p">))</span>
+<span class="n">avg_ratings</span> <span class="o">=</span> <span class="n">norm_ratings</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span>
+    <span class="p">[</span><span class="s1">&#39;movie_title&#39;</span><span class="p">,</span> <span class="s1">&#39;gender&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">avg</span><span class="p">(</span><span class="s1">&#39;rating&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;rating&#39;</span><span class="p">))</span>
 
 <span class="c1"># Display the aggregated average ratings</span>
 <span class="n">display</span><span class="p">(</span><span class="n">avg_ratings</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">toPandas</span><span class="p">())</span>
@@ -12313,7 +12325,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Pivot">Pivot<a class="anchor-link" href="#Pivot">&#182;</a></h1>
+<h2 id="Pivot">Pivot<a class="anchor-link" href="#Pivot">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -12323,7 +12335,8 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Pivot to flatten gender averages per movie on a single line</span>
-<span class="n">pivot_avg_ratings</span> <span class="o">=</span> <span class="n">avg_ratings</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s1">&#39;movie_title&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">first</span><span class="p">(</span><span class="s1">&#39;rating&#39;</span><span class="p">))</span>
+<span class="n">pivot_avg_ratings</span> <span class="o">=</span> <span class="n">avg_ratings</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s1">&#39;movie_title&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="s1">&#39;gender&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+    <span class="n">F</span><span class="o">.</span><span class="n">first</span><span class="p">(</span><span class="s1">&#39;rating&#39;</span><span class="p">))</span>
 
 <span class="c1"># Display the pivoted values to show averages</span>
 <span class="n">display</span><span class="p">(</span><span class="n">pivot_avg_ratings</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">toPandas</span><span class="p">())</span>
@@ -12427,18 +12440,21 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Gender-Polar-Movies">Gender Polar Movies<a class="anchor-link" href="#Gender-Polar-Movies">&#182;</a></h1>
+<h1 id="Find-Movies">Find Movies<a class="anchor-link" href="#Find-Movies">&#182;</a></h1><p>Movies that are rated very differently by men and women are...</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#Compute movies that have the maximum ratings polarity between two genders and display top 10</span>
-<span class="n">display</span><span class="p">(</span><span class="n">sqlCtx</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;select movie_title, F as female_rating, M as male_rating, (M-F) as diff from {0} order by abs(diff) desc limit 10&#39;</span><span class="o">.</span>\
-           <span class="n">format</span><span class="p">(</span><span class="n">pivot_avg_ratings</span><span class="o">.</span><span class="n">reg</span><span class="p">()))</span><span class="o">.</span><span class="n">toPandas</span><span class="p">())</span>
+<span class="n">display</span><span class="p">(</span>
+    <span class="n">sqlCtx</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+        <span class="s1">&#39;select movie_title, F as female_rating, M as male_rating, (M-F) as diff from {0} order by abs(diff) desc limit 10&#39;</span><span class="o">.</span>
+        <span class="n">format</span><span class="p">(</span><span class="n">pivot_avg_ratings</span><span class="o">.</span><span class="n">reg</span><span class="p">()))</span><span class="o">.</span><span class="n">toPandas</span><span class="p">())</span>
 </pre></div>
 
 </div>

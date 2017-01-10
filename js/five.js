@@ -22,3 +22,21 @@ $('.navbar-collapse ul li a').click(function () {
 $(".portfolio-modal").on('hidden.bs.modal', function (e) {
     $(this).contents().find("iframe").attr("src", $(this).contents().find("iframe").attr("src"));
 });
+
+$(".carousel").swipe({
+    swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
+
+        if (direction == 'left') $(this).carousel('next');
+        if (direction == 'right') $(this).carousel('prev');
+    },
+    allowPageScroll: "vertical"
+});
+
+//Include notebook page inline
+$(document).ready(function () {
+    $('[data-include]').each(function () {
+        var file = 'notebooks/' + $(this).data('include');
+        console.log(file);
+        $(this).load(file);
+    });
+});

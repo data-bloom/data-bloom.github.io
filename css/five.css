@@ -556,8 +556,7 @@ section h3.section-subheading {
 
 .carousel-control {
     position: absolute;
-    top: -50px;
-    left: 0;
+    top: 0px;
     background: none !important;
     color: #fff !important;
     text-align: center;
@@ -568,13 +567,14 @@ section h3.section-subheading {
     color: #fff;
 }
 
+.controls {
+    z-index: 25;
+}
+
 .carousel-control .glyphicon-chevron-left,
 .carousel-control .glyphicon-chevron-right {
-    z-index: 5;
-    display: inline-block;
-    bottom: 0;
-    top: 0px;
     position: relative;
+    top: 0px;
 }
 
 .carousel-indicators {
@@ -582,8 +582,8 @@ section h3.section-subheading {
     left: 50%;
     z-index: 15;
     width: 60%;
-    top: -50px;
-    padding-left: 0;
+    top: 0px;
+    padding: 0;
     margin-left: -30%;
     text-align: center;
     list-style: none;
@@ -609,7 +609,6 @@ section h3.section-subheading {
 .carousel-indicators .active {
     width: 10px;
     height: 10px;
-    margin: 0;
     background-color: #fff;
 }
 
@@ -622,33 +621,51 @@ section h3.section-subheading {
     text-align: center;
     max-width: 100%;
     bottom: initial;
-    background-color: transparent;
     min-height: 400px;
     padding: 50px;
     overflow: auto;
 }
 
-.carouselcaption h3 {
-    color: #666;
-}
-
-.carouselcaption:before {
+.carouselcaption:b4 {
     content: "";
-    background: url('../images/analytics_data_twins.png') no-repeat center center;
-    background-size: 853px 400px;
-    position: absolute;
+    background: url('../images/bigdata+analytics.jpg') center no-repeat;
+    background-size: 800px 400px;
+    opacity: 0.15;
     z-index: -1;
+    width: 100%;
+    height: 100%;
     top: 0;
+    right: 0;
     bottom: 0;
     left: 0;
-    right: 0;
-    opacity: .10;
+    position: absolute;
+    display: inline-block;
+}
+
+.carouselcaption > div {
+    -webkit-box-shadow: 0px 2px 25px rgba(0, 0, 0, .25);
+    box-shadow: 0px 2px 25px rgba(0, 0, 0, .25);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.carouselcaption .leadtxt {
+    text-transform: none;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+    text-align: left;
+    line-height: 1.75;
 }
 
 
 /* Carousel end*/
 
-@media(min-width:767px) {
+@media(min-width: 767px) {
     #portfolio .portfolio-item {
         margin: 0 0 30px;
     }

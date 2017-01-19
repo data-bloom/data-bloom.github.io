@@ -653,10 +653,6 @@ section h3.section-subheading {
 
 .carouselcaption .leadtxt {
     text-transform: none;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
     font-size: 14px;
     color: #555;
     font-weight: 500;
@@ -670,6 +666,12 @@ section h3.section-subheading {
 @media(min-width: 767px) {
     #portfolio .portfolio-item {
         margin: 0 0 30px;
+    }
+    .carouselcaption .leadtxt {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 50px;
+        padding-right: 50px;
     }
 }
 

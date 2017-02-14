@@ -315,7 +315,8 @@ header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url(../images/potw1649a.jpg);
+    background-image: url(../images/mwx-t5p-pum-matt-palmer.jpg);
+    /**background-image: url(../images/potw1649a.jpg);*/
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
@@ -534,7 +535,56 @@ section h3.section-subheading {
 
 #teasers {
     background: #cecece;
-    color: #fff;
+}
+
+#teasers {
+    text-align: center;
+    color: #black;
+    background-attachment: scroll;
+    background-image: url(../images/bgteasers.jpg);
+    background-position: center center;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+
+/** Preview cards */
+
+.box {
+    background: #fff;
+    opacity: 0.9;
+    transition: all 0.2s ease;
+    border: 0px #dadada;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-clip: padding-box;
+    padding: 0 20px 20px 20px;
+    max-height: 300px;
+    min-height: 300px;
+    text-overflow: ellipsis;
+}
+
+.box-content p {
+    text-align: left;
+}
+
+.box:hover {
+    opacity: 1;
+}
+
+#teasers a {
+    text-decoration: none;
+}
+
+.box .box-content {
+    padding: 10px;
+    border-radius: 0 0 2px 2px;
+    background-clip: padding-box;
+    box-sizing: border-box;
 }
 
 

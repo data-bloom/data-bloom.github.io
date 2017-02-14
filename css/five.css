@@ -557,7 +557,8 @@ section h3.section-subheading {
     background: #fff;
     opacity: 0.9;
     transition: all 0.2s ease;
-    border: 0px #dadada;
+    border: 0px;
+    overflow: hidden;
     margin-top: 10px;
     box-sizing: border-box;
     border-radius: 5px;

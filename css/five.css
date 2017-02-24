@@ -559,7 +559,7 @@ section h3.section-subheading {
     transition: all 0.2s ease;
     border: 0px;
     overflow: hidden;
-    margin-top: 10px;
+    margin-top: 30px;
     box-sizing: border-box;
     border-radius: 5px;
     background-clip: padding-box;
@@ -583,9 +583,12 @@ section h3.section-subheading {
 
 .box .box-content {
     padding: 10px;
+    padding-bottom: 50px;
+    overflow-y: auto;
     border-radius: 0 0 2px 2px;
     background-clip: padding-box;
     box-sizing: border-box;
+    text-overflow: ellipsis;
 }
 
 
@@ -878,6 +881,11 @@ ul.social-buttons li a:active {
     margin-right: 5px;
     margin-bottom: auto;
     background-color: #fff;
+}
+
+.modal-body {
+    max-height: calc(100vh - 10px);
+    overflow-y: auto;
 }
 
 .portfolio-modal .modal-content h2 {

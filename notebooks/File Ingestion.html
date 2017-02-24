@@ -11749,7 +11749,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Big-Data-Ingestion">Big Data Ingestion<a class="anchor-link" href="#Big-Data-Ingestion">&#182;</a></h1><h2 id="Business-Problem">Business Problem<a class="anchor-link" href="#Business-Problem">&#182;</a></h2><p>Every business now has more data than can be handled by spreadhseets and traditional databases. So chief data officers for all digital enterprises are creating bigger data lakes at scale on Hadoop. The problem however is that the data lake journey is fraught with governance challenges down the line if not shored up by clear metadata management and governance standards from the start. It turns out that directly opening the data lake for everyone to bring their data, per the intended purpose, is a guaranteed way for the lake to turn into a swamp quickly. There are numerous ways to bring data into Hadoop. Opening and supporting all the available protocols is a governance nightmare.</p>
+<h1 id="Big-Data-Ingestion">Big Data Ingestion<a class="anchor-link" href="#Big-Data-Ingestion">&#182;</a></h1><h2 id="Business-Problem">Business Problem<a class="anchor-link" href="#Business-Problem">&#182;</a></h2><p>Every business now has more data than can be handled by spreadsheets and traditional databases. So chief data officers for all digital enterprises are creating bigger data lakes at scale on Hadoop. The problem however is that the data lake journey is fraught with governance challenges down the line if not shored up by clear metadata management and governance standards from the start. It turns out that directly opening the data lake for everyone to bring their data, per the intended purpose, is a guaranteed way for the lake to turn into a swamp quickly. There are numerous ways to bring data into Hadoop. Opening and supporting all the available protocols is a governance nightmare.</p>
 <p>Instead, we found that the best way to ensure a sustainable metadata governance standard is to design a single data manifold -- a self-service data ingestion WYSIWYG interface -- that quarantines input data and enforces a strict annotation, quality, and ownership standard for raw data. A single manifold also addresses challenges like --</p>
 <ol>
 <li>schema-integrity challenges of continuous data</li>
@@ -11760,7 +11760,7 @@ div#notebook {
 <li>triggering automatic curation workflows</li>
 <li>more...</li>
 </ol>
-<p>There are a myriad of ways to ingest, infer, characterize, and store raw data into the data lake environment. Below, a few examples of bringing data into the lake from local files (Excel, CSV, JSON, XML), enterprise databases (SQL Server, MySQL, Postgres, Oracle, SAP BW, Teradata), cloud platforms (Google Big Query, Salesforce, Amazon S3), and from the Internet. Although we do not show the drag-n-drop user-interface, the constructs underlying the data bridge are simple and enabled easily by Spark.</p>
+<p>There is a myriad of ways to ingest, infer, characterize, and store raw data into the data lake environment. Below, a few examples of bringing data into the lake from local files (Excel, CSV, JSON, XML), enterprise databases (SQL Server, MySQL, Postgres, Oracle, SAP BW, Teradata), cloud platforms (Google Big Query, Salesforce, Amazon S3), and from the Internet. Although we do not show the drag-n-drop user-interface, the constructs underlying the data bridge are simple and enabled easily by Spark.</p>
 
 </div>
 </div>
@@ -12404,7 +12404,7 @@ div#notebook {
 
 
 <span class="c1"># Write a simple routine to read data file from home directory</span>
-<span class="c1"># We are doing this so as to not inline content here in the public notebook</span>
+<span class="c1"># We are doing this so as to not inline username/password info here in the public notebook</span>
 <span class="k">def</span> <span class="nf">read_string</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
@@ -12917,7 +12917,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Analytics-in-memory">Analytics in memory<a class="anchor-link" href="#Analytics-in-memory">&#182;</a></h1><p>So what can we do with the data in the lake? Whether that data is physically copied in the warehouse, saved to a local columnar file, or logically referenced in-memory from a existing remote source, most analytics can directly be applied in place. This makes ephemeral analytics and pipelined ETL at scale easy to implement in Spark.</p>
+<h1 id="Analytics-in-memory">Analytics in memory<a class="anchor-link" href="#Analytics-in-memory">&#182;</a></h1><p>So what can we do with the data in the lake? Whether that data is physically copied in the warehouse, saved to a local columnar file, or logically referenced in-memory from an existing remote source, most analytics can directly be applied in place. This makes ephemeral analytics and pipelined ETL at scale easy to implement in Spark.</p>
 <p>Underneath, we just pick the simplest Iris flower dataset and visually explore for the separability of the features.</p>
 
 </div>

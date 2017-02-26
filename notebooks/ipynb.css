@@ -26,7 +26,6 @@ h2,
 h3,
 h4 {
     font-weight: 400;
-    color: #4078c0;
     text-decoration: none;
     text-transform: none;
 }
@@ -46,7 +45,7 @@ div.cell {
 }
 
 div.input_prompt {
-    margin-left: -7ex;
+    margin-left: -5ex;
     color: #ddd;
 }
 

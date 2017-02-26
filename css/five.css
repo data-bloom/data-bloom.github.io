@@ -325,6 +325,31 @@ header {
     -o-background-size: cover;
 }
 
+
+/** boutique block */
+
+.big-icon {
+    font-size: 128px;
+}
+
+.block-3 {
+    text-align: center;
+    padding-bottom: 50px;
+    vertical-align: middle;
+}
+
+.services-header {
+    background-color: #fff;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: #fed136;
+}
+
+.services-text {
+    padding-top: 25px;
+    color: #fff;
+}
+
 header .intro-text {
     padding-top: 100px;
     padding-bottom: 50px;

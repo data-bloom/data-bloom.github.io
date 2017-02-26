@@ -69,6 +69,9 @@ div.input,
 div.output_wrapper {
     margin-top: 1em;
     margin-bottom: 1em;
+}
+
+div.highlight {
     background-color: #ddd;
 }
 

@@ -4,8 +4,6 @@ div.output_area pre,
 div.output_wrapper,
 div.prompt {
     font-family: avenir, 'avenir next', helvetica, arial, sans-serif, monospace !important;
-    font-size: 120%;
-    font-weight: 400;
 }
 
 .navbar-brand {

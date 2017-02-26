@@ -316,7 +316,6 @@ header {
     color: #fff;
     background-attachment: scroll;
     background-image: url(../images/mwx-t5p-pum-matt-palmer.jpg);
-    /**background-image: url(../images/potw1649a.jpg);*/
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
@@ -341,7 +340,8 @@ header {
 .services-header {
     background-color: #fff;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 6px;
+    vertical-align: middle;
     color: #fed136;
 }
 
@@ -393,6 +393,10 @@ header .intro-text .intro-heading {
         font-weight: 700;
         line-height: 75px;
         text-shadow: 0px 0px 7px #c2c2c2;
+    }
+    .box {
+        height: 300px;
+        min-height: 300px;
     }
 }
 
@@ -559,12 +563,7 @@ section h3.section-subheading {
 }
 
 #teasers {
-    background: #cecece;
-}
-
-#teasers {
     text-align: center;
-    color: #black;
     background-attachment: scroll;
     background-image: url(../images/bgteasers.jpg);
     background-position: center center;
@@ -589,8 +588,6 @@ section h3.section-subheading {
     border-radius: 5px;
     background-clip: padding-box;
     padding: 0 20px 20px 20px;
-    height: 300px;
-    min-height: 300px;
     text-overflow: ellipsis;
 }
 
@@ -612,7 +609,7 @@ section h3.section-subheading {
 
 .box .box-content {
     padding: 10px;
-    padding-bottom: 50px;
+    padding-bottom: 10px;
     overflow-y: auto;
     border-radius: 0 0 2px 2px;
     background-clip: padding-box;

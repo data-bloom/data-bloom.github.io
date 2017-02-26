@@ -1,7 +1,5 @@
 {%- extends 'basic.tpl' -%} {% from 'mathjax.tpl' import mathjax %}
 
-
-
 <!DOCTYPE html>
 <html>
 
@@ -12,11 +10,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="bloom.ico" type="image/x-icon">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -67,8 +65,8 @@
         }
     </style>
 
+    <link rel="stylesheet" href="/css/five.css">
     <link rel="stylesheet" href="ipynb.css">
-
     <!-- Loading mathjax macro -->
     {{ mathjax() }} {%- endblock header -%}
 </head>
@@ -91,22 +89,22 @@
         </div>
     </footer>
     {%- endblock body %}
-    <script src="js/jquery.js"></script>
+    <script src="/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/cbpAnimatedHeader.js"></script>
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+    <script src="/js/jqBootstrapValidation.js"></script>
+    <script src="/js/contact_me.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/five.js"></script>
+    <script src="/js/five.js"></script>
 </body>
 
 

@@ -522,6 +522,18 @@ section h3.section-subheading {
     color: #fff;
 }
 
+.portfolio-hover-content-play {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    opacity: 0.9;
+    height: 20px;
+    margin-top: -24px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+}
+
 #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i {
     margin-top: -12px;
 }
@@ -893,6 +905,10 @@ ul.social-buttons li a:active {
     outline: 0;
 }
 
+.portfolio-modal .modal-backdrop {
+    margin-right: 50px !important;
+}
+
 .portfolio-modal .modal-content {
     padding: 100px 0;
     min-height: 100%;
@@ -907,11 +923,6 @@ ul.social-buttons li a:active {
     margin-right: 5px;
     margin-bottom: auto;
     background-color: #fff;
-}
-
-.modal-body {
-    max-height: calc(100vh - 10px);
-    overflow-y: auto;
 }
 
 .portfolio-modal .modal-content h2 {
